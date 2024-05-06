@@ -1,18 +1,24 @@
-		h1,h2,h3{
+	h1,h2,h3{
 			color:red;
 			background-color:green; 
 			text-transform:uppercase;
 		}
 		
-		.test1{
-			background-color:yellow;
+		.s1{
+			color:pink;
+			background-color:red;
 		}
 		
-		.text{
+		.cen{
 			text-align:center;
 			text-decoration:underline;
 		}
 		
-		#test2{
-			background-color:red;
+		#s2{
+			color:yellow;
+			background-color:blue;
+		}
+		
+		h4.s3{
+			text-transform:uppercase;
 		}
