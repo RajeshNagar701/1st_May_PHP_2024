@@ -3,7 +3,7 @@
 // require work as require file code
 
 
-require('Require12.php'); 
+require('Require1j.php'); 
 require('Require1.php');
 require('Require1.php');
 echo "Morning";  
@@ -21,12 +21,21 @@ echo "Morning";
 */
 /*
 Differance between require & include_once
+
 => include_once same as require() but only require 1 time
 
 require gives Fetel error when file done not exits
 
 
-// Incude & require both same but if file not exits than Incude define E_warning & Require Fetel Error
+// 
+Incude & require both same but if file not exits than 
+
+Incude define E_warning so script not terminate 
+Require Fetel Error so script terminate
+
+So ideal Include use 
+
+
 */
 
 ?>

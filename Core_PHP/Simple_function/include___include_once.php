@@ -13,18 +13,18 @@ echo "Morning";
 
 // if file does not exits than iclude provide warning 
 
-echo "Good";
-include('include12.php');
-include('include1.php');
-include('include1.php');
-echo "Morning";
-
 /*
-include_once('include1.php');
-include_once('include1.php');
-include_once('include1.php');
-echo "Morning";
+echo "Good";
+include('include1.php');
+include('include1.php');
+include('include1.php');
 */
+
+echo "Good";
+include_once('include1.php');
+include_once('include1zs.php');
+include_once('include1.php');
+
 /*
 Differance between include & include_once
 => include_once same as include() but only include 1 time

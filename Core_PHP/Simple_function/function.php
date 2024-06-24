@@ -1,6 +1,17 @@
 <?php
 
 /*
+ 2 tYPES OF function_exists
+ 
+ 1) BUILD IN function  predifined count()
+ 2) USER defined  function sum()
+ 
+*/
+
+
+
+
+/*
 $a=20;
 $b=10;
 echo $sum=$a+$b;

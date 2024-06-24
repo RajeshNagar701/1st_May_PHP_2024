@@ -2,7 +2,7 @@
 
 
 // check value of variable is set or not
-$p=20;  
+$p;  
 
 if(isset($p))
 {

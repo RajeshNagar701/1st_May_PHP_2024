@@ -16,17 +16,18 @@
 <?php
 if(isset($_POST['submit']))
 {
-	echo $username=$_POST['username']."<br>";
-	echo $file1=$_FILES['file1']['name'];  // get only input type="file"
+	echo $username=$_POST['username'];
+	echo $file=$_FILES['file1']['name'];
 	
-		// upload file in folder
-		
-		$path='img/upload/'.$file1;
-		$copy_file=$_FILES['file1']['tmp_name'];
-		move_uploaded_file($copy_file,$path);
+	// image upload in project folder
+	$path='img/upload/'.$file;
+	$tmp_file=$_FILES['file1']['tmp_name'];
+	move_uploaded_file($tmp_file,$path);
+	
 }
-
 ?>
+
+<img src="img/upload/<?php echo $file;?>" width="300px">
 
 
 
