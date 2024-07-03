@@ -4,6 +4,6 @@ print_r($arr);
 
 echo $arr[0]."<br>";
 
-echo $arr['b'][0];
+echo $arr['b'][1];
 
 ?>

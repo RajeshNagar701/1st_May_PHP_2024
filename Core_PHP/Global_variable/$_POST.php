@@ -22,7 +22,7 @@ Mrthod get not use
 if(isset($_POST['submit']))
 {
 	echo $name=$_POST['name'];
-	echo $age=$_REQUEST['age'];
+	echo $age=$_POST['age'];
 }
 
 ?>

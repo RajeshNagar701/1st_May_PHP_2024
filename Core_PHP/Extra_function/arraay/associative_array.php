@@ -4,7 +4,7 @@ print_r($asociate_arr);
 echo "<br>";
 
 
-echo $asociate_arr['raj']. "<br>";
+echo $asociate_arr[3]. "<br>";
 
 
 foreach($asociate_arr as $string)
