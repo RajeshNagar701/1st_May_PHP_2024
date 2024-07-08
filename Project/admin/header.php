@@ -56,16 +56,16 @@
 
 
                     <li>
-                        <a class="active-menu" href="index.php"><i class="fa fa-dashboard "></i>Dashboard</a>
+                        <a class="active-menu" href="dashboard"><i class="fa fa-dashboard "></i>Dashboard</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>Main Categories <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
-                                <a href="add_categories.php"><i class="fa fa-toggle-on"></i>Add</a>
+                                <a href="add_categories"><i class="fa fa-toggle-on"></i>Add</a>
                             </li>
                             <li>
-                                <a href="manage_categories.php"><i class="fa fa-bell "></i>Manage</a>
+                                <a href="manage_categories"><i class="fa fa-bell "></i>Manage</a>
                             </li>
                             
                         </ul>
@@ -74,10 +74,10 @@
                         <a href="#"><i class="fa fa-desktop "></i>Sub Categories <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
-                                <a href="add_subcategories.php"><i class="fa fa-toggle-on"></i>Add</a>
+                                <a href="add_subcategories"><i class="fa fa-toggle-on"></i>Add</a>
                             </li>
                             <li>
-                                <a href="manage_subcategories.php"><i class="fa fa-bell "></i>Manage</a>
+                                <a href="manage_subcategories"><i class="fa fa-bell "></i>Manage</a>
                             </li>
                             
                         </ul>
@@ -86,38 +86,38 @@
                         <a href="#"><i class="fa fa-desktop "></i>Videos <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
-                                <a href="add_videos.php"><i class="fa fa-toggle-on"></i>Add</a>
+                                <a href="add_videos"><i class="fa fa-toggle-on"></i>Add</a>
                             </li>
                             <li>
-                                <a href="manage_videos.php"><i class="fa fa-bell "></i>Manage</a>
+                                <a href="manage_videos"><i class="fa fa-bell "></i>Manage</a>
                             </li>
                             
                         </ul>
                     </li>
 						 					
                     <li>
-                        <a href="manage_user.php"><i class="fa fa-table "></i>User </a>
+                        <a href="manage_user"><i class="fa fa-table "></i>User </a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>Employee <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
-                                <a href="add_employee.php"><i class="fa fa-toggle-on"></i>Add</a>
+                                <a href="add_employee"><i class="fa fa-toggle-on"></i>Add</a>
                             </li>
                             <li>
-                                <a href="manage_employee.php"><i class="fa fa-bell "></i>Manage</a>
+                                <a href="manage_employee"><i class="fa fa-bell "></i>Manage</a>
                             </li>
                             
                         </ul>
                     </li> 
 					<li>
-                        <a href="manage_watchlist.php"><i class="fa fa-table "></i>Watchlist</a>
+                        <a href="manage_watchlist"><i class="fa fa-table "></i>Watchlist</a>
                     </li>
 					<li>
-                        <a href="manage_download.php"><i class="fa fa-table "></i>Download</a>
+                        <a href="manage_download"><i class="fa fa-table "></i>Download</a>
                     </li>
 					<li>
-                        <a href="manage_comment.php"><i class="fa fa-table "></i>Comment</a>
+                        <a href="manage_comment"><i class="fa fa-table "></i>Comment</a>
                     </li>	
                 </ul>
 

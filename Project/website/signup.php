@@ -68,7 +68,7 @@ include_once('header.php');
                                     <button type="submit" class="btn btn-primary rounded-0 d-block ml-auto mr-0 tm-btn-animate tm-btn-submit tm-icon-submit"><span>Signup</span></button>
                                   </div>
 								  <div class="form-group mb-0">
-                                    <a href="login.php">If you already registered then Login Here</a>
+                                    <a href="login">If you already registered then Login Here</a>
                                   </div>
                                 </form>    
                             </div>

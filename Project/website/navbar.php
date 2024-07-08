@@ -31,17 +31,17 @@ function active($currect_page){
                                     </button>
                                     <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                                         <ul class="navbar-nav text-uppercase">
-                                            <li class="nav-item <?php active('index.php')?>">
-                                                <a class="nav-link tm-nav-link" href="index.php">Videos <span class="sr-only">(current)</span></a>
+                                            <li class="nav-item <?php active('home')?>">
+                                                <a class="nav-link tm-nav-link" href="home">Videos <span class="sr-only">(current)</span></a>
                                             </li>
-                                            <li class="nav-item <?php active('about.php')?>">
-                                                <a class="nav-link tm-nav-link" href="about.php">About</a>
+                                            <li class="nav-item <?php active('about')?>">
+                                                <a class="nav-link tm-nav-link" href="about">About</a>
                                             </li>
-                                            <li class="nav-item <?php active('contact.php')?>">
-                                                <a class="nav-link tm-nav-link" href="contact.php">Contact</a>
+                                            <li class="nav-item <?php active('contact')?>">
+                                                <a class="nav-link tm-nav-link" href="contact">Contact</a>
                                             </li>
-											<li class="nav-item <?php active('signup.php')?>">
-                                                <a class="nav-link tm-nav-link" href="signup.php">Signup</a>
+											<li class="nav-item <?php active('signup')?>">
+                                                <a class="nav-link tm-nav-link" href="signup">Signup</a>
                                             </li>
                                         </ul>
                                     </div>
