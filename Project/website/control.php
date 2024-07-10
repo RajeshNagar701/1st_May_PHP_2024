@@ -1,13 +1,18 @@
 
 
+
 <?php
 
-class control
+include_once('model.php'); // 1 step : load model in control
+
+
+class control extends model     // 2 step extends(inherit) model class
 {
 	// auto call magic function  only make clsss object 
 	function __construct()
 	{
-		
+		model::__construct(); // 3 step call model __construct for database connectivity 
+	
 		$url=$_SERVER['PATH_INFO']; // PATH urldecode
 		
 		switch($url)
