@@ -31,6 +31,19 @@ class model
 		}
 		return $arr;
 	}
+
+	function insert($tbl,$arr)
+	{
+		$col_arr=array_keys($arr);
+		$col=implode(",",$col_arr);
+
+		$value_arr=array_values($arr);
+		$value=implode("','",$value_arr);
+
+		$ins="insert into $tbl ($col) values ('$value')";   //'raj','raj#@gmail '
+		$run=$this->conn->query($ins);
+		return $run;
+	}
 	
 	
 }

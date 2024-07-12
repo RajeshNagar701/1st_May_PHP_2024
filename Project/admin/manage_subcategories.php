@@ -25,25 +25,29 @@ include_once('header.php');
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
+                                            <th>#ID</th>
+                                            <th>Name</th>
+                                            <th>Image</th>
 											<th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                        foreach($sub_categories as $w)
+                                        {
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td><?php echo $w->id;?></td>
+                                            <td><?php echo $w->name;?></td>
+                                            <td><?php echo $w->img;?></td>
 											<td>
 												<a href="#" class="btn btn-primary">Edit</a>
 												<a href="#" class="btn btn-danger">Delete</a>
 											</td>
                                         </tr>
-                                      
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

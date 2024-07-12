@@ -25,25 +25,41 @@ include_once('header.php');
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
+                                            <th>#ID</th>
+                                            <th>Image</th>
+                                            <th>Title</th>
+                                            <th>Launguages</th>
+                                            <th>Duration</th>
+                                            <th>Quality</th>
+                                            <th>Size</th>
+                                            <th>Main Cate Id</th>
+                                            <th>Sub Cate Id</th>
 											<th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                        foreach($vedios as $w)
+                                        {
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td><?php echo $w->id;?></td>
+                                            <td><?php echo $w->img;?></td>
+                                            <td><?php echo $w->title;?></td>
+                                            <td><?php echo $w->lang;?></td>
+                                            <td><?php echo $w->duration;?></td>
+                                            <td><?php echo $w->Quality_format;?></td>
+                                            <td><?php echo $w->size;?></td>
+                                            <td><?php echo $w->main_cate_id;?></td>
+                                            <td><?php echo $w->sub_cate_id;?></td>
 											<td>
 												<a href="#" class="btn btn-primary">Edit</a>
 												<a href="#" class="btn btn-danger">Delete</a>
 											</td>
                                         </tr>
-                                      
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

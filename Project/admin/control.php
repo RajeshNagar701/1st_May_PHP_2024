@@ -76,7 +76,7 @@ class control extends model    // 2 step extends(inherit) model class
 			break;
 			
 			case '/manage_comment':
-			$comments=$this->select('	comments');
+			$comments=$this->select('comments');
 			include_once('manage_comment.php');
 			break;
 			

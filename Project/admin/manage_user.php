@@ -25,24 +25,38 @@ include_once('header.php');
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
+                                            <th>#ID</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Gender</th>
+                                            <th>Laungauges</th>
+                                            <th>Country</th>
 											<th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                        foreach($users as $w)
+                                        {
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td><?php echo $w->id;?></td>
+                                            <td><?php echo $w->img;?></td>
+                                            <td><?php echo $w->name;?></td>
+                                            <td><?php echo $w->email;?></td>
+                                            <td><?php echo $w->gender;?></td>
+                                            <td><?php echo $w->lag;?></td>
+                                            <td><?php echo $w->cid;?></td>
 											<td>
+                                                <a href="#" class="btn btn-success"><?php echo $w->status;?></a>
 												<a href="#" class="btn btn-primary">Edit</a>
 												<a href="#" class="btn btn-danger">Delete</a>
 											</td>
                                         </tr>
+                                        <?php
+                                        }
+                                        ?>
                                       
                                     </tbody>
                                 </table>
