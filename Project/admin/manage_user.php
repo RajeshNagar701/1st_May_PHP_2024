@@ -42,7 +42,7 @@ include_once('header.php');
                                         ?>
                                         <tr>
                                             <td><?php echo $w->id;?></td>
-                                            <td><?php echo $w->img;?></td>
+                                            <td><img src="upload/users/<?php echo $w->img;?>" width="50px" /></td>
                                             <td><?php echo $w->name;?></td>
                                             <td><?php echo $w->email;?></td>
                                             <td><?php echo $w->gender;?></td>

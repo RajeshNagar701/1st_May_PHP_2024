@@ -17,6 +17,29 @@ class control extends model    // 2 step extends(inherit) model class
 		switch($url)
 		{
 			case '/admin':
+			if (isset($_REQUEST['submit'])) {
+					
+					$email = $_REQUEST['email'];
+					$password = md5($_REQUEST['password']); // pass encripted 
+					
+					$where = array("email" => $email, "password" => $password);
+					$res=$this->select_where('admins',$where);
+					$chk=$res->num_rows; // 0 means false & 1 means true  check row wise condition
+					
+					if($chk==1)
+					{
+						echo "<script>
+							alert('Login Success !');
+							window.location='dashboard';
+						</script>";
+					}
+					else
+					{
+						echo "<script>
+							alert('Login Failed !');
+						</script>";
+					}
+				}
 			include_once('index.php');
 			break;
 			

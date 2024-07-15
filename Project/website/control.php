@@ -39,6 +39,11 @@ class control extends model     // 2 step extends(inherit) model class
 							alert('Contact Success !');
 						</script>";
 					}
+					else
+					{
+						echo "not success";
+						
+					}
 				}
 				include_once('contact.php');
 				break;
@@ -79,6 +84,28 @@ class control extends model     // 2 step extends(inherit) model class
 				break;
 
 			case '/login':
+				if (isset($_REQUEST['submit'])) {
+					
+					$email = $_REQUEST['email'];
+					$password = md5($_REQUEST['password']); // pass encripted 
+					
+					$where = array("email" => $email, "password" => $password);
+					$res=$this->select_where('users',$where);
+					$chk=$res->num_rows; // 0 means false & 1 means true  check row wise condition
+					
+					if($chk==1)
+					{
+						echo "<script>
+							alert('Login Success !');
+						</script>";
+					}
+					else
+					{
+						echo "<script>
+							alert('Login Failed !');
+						</script>";
+					}
+				}
 
 				include_once('login.php');
 				break;

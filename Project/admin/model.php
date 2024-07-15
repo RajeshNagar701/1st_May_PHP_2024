@@ -40,11 +40,27 @@ class model
 		$value_arr=array_values($arr);
 		$value=implode("','",$value_arr);
 
-		$ins="insert into $tbl ($col) values ('$value')";   //'raj','raj#@gmail '
+		echo $ins="insert into $tbl ($col) values ('$value')";   //'raj','raj#@gmail '
 		$run=$this->conn->query($ins);
 		return $run;
 	}
 	
+	// login // select where data fetch
+	function select_where($tbl,$where)
+	{
+		$col_w=array_keys($where);
+		$value_w=array_values($where);
+		
+		$sel="select * from $tbl where 1=1"; // 1=1 means query continue
+		$i=0;
+		foreach($where as $w)
+		{
+			$sel.=" and $col_w[$i]='$value_w[$i]'";
+			$i++;
+		}
+		$run=$this->conn->query($sel);
+		return $run;
+	}
 	
 }
 $obj=new model;
