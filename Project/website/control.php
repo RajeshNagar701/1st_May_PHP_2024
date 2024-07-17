@@ -11,6 +11,9 @@ class control extends model     // 2 step extends(inherit) model class
 	// auto call magic function  only make clsss object 
 	function __construct()
 	{
+		
+		session_start();
+		
 		model::__construct(); // 3 step call model __construct for database connectivity 
 
 		$url = $_SERVER['PATH_INFO']; // PATH urldecode
@@ -95,8 +98,13 @@ class control extends model     // 2 step extends(inherit) model class
 					
 					if($chk==1)
 					{
+						$data=$res->fetch_object(); // single data fetch 
+						$_SESSION['uname']=$data->name;
+						$_SESSION['uid']=$data->id;
+						
 						echo "<script>
 							alert('Login Success !');
+							window.location='home'
 						</script>";
 					}
 					else
@@ -109,8 +117,25 @@ class control extends model     // 2 step extends(inherit) model class
 
 				include_once('login.php');
 				break;
-
-			default:
+	
+				case '/profile':
+				$where=array("id"=>$_SESSION['uid']);
+				$res=$this->select_where('users',$where);
+				$fetch=$res->fetch_object();
+				
+				include_once('profile.php');
+				break;
+				
+				case '/user_logout':
+					unset($_SESSION['uid']);
+					unset($_SESSION['uname']);
+					echo "<script>
+							alert('Logout Success !');
+							window.location='home'
+						</script>";
+				break;
+	
+				default:
 				echo "<h1 style='color:red;text-align:center'> Page Not Found </h1>";
 				break;
 		}

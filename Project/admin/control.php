@@ -10,6 +10,8 @@ class control extends model    // 2 step extends(inherit) model class
 	// auto call magic function  only make clsss object 
 	function __construct()
 	{
+		session_start();
+		
 		model::__construct(); // 3 step call model __construct for database connectivity 
 		
 		$url=$_SERVER['PATH_INFO']; // PATH urldecode
@@ -28,6 +30,9 @@ class control extends model    // 2 step extends(inherit) model class
 					
 					if($chk==1)
 					{
+						$data=$res->fetch_object(); // single data fetch 
+						$_SESSION['aname']=$data->name;
+						$_SESSION['aid']=$data->id;
 						echo "<script>
 							alert('Login Success !');
 							window.location='dashboard';
@@ -43,6 +48,17 @@ class control extends model    // 2 step extends(inherit) model class
 			include_once('index.php');
 			break;
 			
+			
+			
+			case '/admin_logout':
+				unset($_SESSION['aid']);
+				unset($_SESSION['aname']);
+				echo "<script>
+						alert('Logout Success !');
+						window.location='admin'
+					</script>";
+			break;
+	
 			case '/dashboard':
 			include_once('dashboard.php');
 			break;

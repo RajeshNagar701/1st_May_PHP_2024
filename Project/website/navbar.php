@@ -40,9 +40,27 @@ function active($currect_page){
                                             <li class="nav-item <?php active('contact')?>">
                                                 <a class="nav-link tm-nav-link" href="contact">Contact</a>
                                             </li>
+											<?php
+											if(isset($_SESSION['uid']))
+											{
+											?>
+											<li class="nav-item <?php active('profile')?>">
+                                                <a class="nav-link tm-nav-link" href="profile">Hi.. <?php echo $_SESSION['uname'];?></a>
+                                            </li>
+											<li class="nav-item <?php active('user_logout')?>">
+                                                <a class="nav-link tm-nav-link" href="user_logout">Logout</a>
+                                            </li>
+											<?php
+											}
+											else	
+											{
+											?>
 											<li class="nav-item <?php active('signup')?>">
                                                 <a class="nav-link tm-nav-link" href="signup">Signup</a>
                                             </li>
+											<?php
+											}
+											?>
                                         </ul>
                                     </div>
                                 </nav>

@@ -1,4 +1,10 @@
 <?php
+if(isset($_SESSION['uid']))
+{
+	echo "<script>
+		window.location='home'
+		</script>";
+}
 include_once('header.php');
 ?>
 
