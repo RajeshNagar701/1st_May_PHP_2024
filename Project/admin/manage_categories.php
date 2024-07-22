@@ -33,21 +33,32 @@ include_once('header.php');
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach($main_categories as $w)
-                                        {
+									if(!empty($main_categories))
+										{
+											foreach($main_categories as $w)
+											{
+											?>
+											<tr>
+												<td><?php echo $w->id;?></td>
+												<td><?php echo $w->name;?></td>
+												<td><?php echo $w->img;?></td>
+												<td>
+													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="delete?dcat=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+												</td>
+											</tr>
+											<?php
+											}
+										}
+										else
+										{	
                                         ?>
-                                        <tr>
-                                            <td><?php echo $w->id;?></td>
-                                            <td><?php echo $w->name;?></td>
-                                            <td><?php echo $w->img;?></td>
-											<td>
-												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-											</td>
-                                        </tr>
-                                        <?php
-                                        }
-                                        ?>
+										<tr>
+											<td align="center" colspan="4"> Data Not Found </td>
+										</tr>
+										<?php
+										}
+										?>
                                       
                                     </tbody>
                                 </table>

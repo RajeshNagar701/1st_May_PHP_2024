@@ -119,6 +119,140 @@ class control extends model    // 2 step extends(inherit) model class
 			include_once('manage_comment.php');
 			break;
 			
+			
+			case '/delete':
+			
+			if(isset($_REQUEST['dcat'])) 
+			{
+				$id=$_REQUEST['dcat'];
+				
+				$where=array("id"=>$id);
+				$res=$this->delete_where('main_categories',$where);
+				if($res)
+				{
+				echo "<script>
+						alert('Main Categories Delete Success !');
+						window.location='manage_categories'
+					</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['dcomment'])) 
+			{
+				$id=$_REQUEST['dcomment'];
+				
+				$where=array("id"=>$id);
+				$res=$this->delete_where('comments',$where);
+				if($res)
+				{
+				echo "<script>
+						alert('Main comments Delete Success !');
+						window.location='manage_comment'
+					</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['ddownload'])) 
+			{
+				$id=$_REQUEST['ddownload'];
+				
+				$where=array("id"=>$id);
+				$res=$this->delete_where('download',$where);
+				if($res)
+				{
+				echo "<script>
+						alert('Download Delete Success !');
+						window.location='manage_download'
+					</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['demp'])) 
+			{
+				$id=$_REQUEST['demp'];
+				
+				$where=array("id"=>$id);
+				$res=$this->delete_where('employee',$where);
+				if($res)
+				{
+				echo "<script>
+						alert('Main Employee Delete Success !');
+						window.location='manage_employee'
+					</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['dsub_cate'])) 
+			{
+				$id=$_REQUEST['dsub_cate'];
+				
+				$where=array("id"=>$id);
+				$res=$this->delete_where('sub_categories',$where);
+				if($res)
+				{
+				echo "<script>
+						alert('Sub Categories Delete Success !');
+						window.location='manage_subcategories'
+					</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['dwatchlist'])) 
+			{
+				$id=$_REQUEST['dwatchlist'];
+				
+				$where=array("id"=>$id);
+				$res=$this->delete_where('watchlist',$where);
+				if($res)
+				{
+				echo "<script>
+						alert('Main watchlist Delete Success !');
+						window.location='manage_watchlist'
+					</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['duser'])) 
+			{
+				$id=$_REQUEST['duser'];
+				
+				$where=array("id"=>$id);
+				
+				// get data for img delete
+				$resdata=$this->select_where('users',$where);
+				$fetch=$resdata->fetch_object();
+				$del_img=$fetch->img;
+				
+				$res=$this->delete_where('users',$where);
+				if($res)
+				{
+					unlink('upload/users/'.$del_img); // delete image from path
+					echo "<script>
+							alert('Users Delete Success !');
+							window.location='manage_user'
+						</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['dvideo'])) 
+			{
+				$id=$_REQUEST['dvideo'];
+				
+				$where=array("id"=>$id);
+				$res=$this->delete_where('vedios',$where);
+				if($res)
+				{
+				echo "<script>
+						alert('Main vedios Delete Success !');
+						window.location='manage_videos'
+					</script>";
+				}
+			}
+			
+			
+			break;
+			
+			
 			default:
 			echo "<h1 style='color:red;text-align:center'> Page Not Found </h1>";
 			break;

@@ -33,21 +33,32 @@ include_once('header.php');
                                     </thead>
                                     <tbody>
                                         <?php
-                                        foreach($watchlists as $w)
-                                        {
+										if(!empty($watchlists))
+										{
+											foreach($watchlists as $w)
+											{
+											?>
+											<tr>
+												<td><?php echo $w->id;?></td>
+												<td><?php echo $w->user_id;?></td>
+												<td><?php echo $w->video_id;?></td>
+												<td>
+													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="delete?dwatchlist=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+												</td>
+											</tr>
+											<?php
+											}
+										}
+                                        else
+										{	
                                         ?>
-                                        <tr>
-                                            <td><?php echo $w->id;?></td>
-                                            <td><?php echo $w->user_id;?></td>
-                                            <td><?php echo $w->video_id;?></td>
-											<td>
-												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-											</td>
-                                        </tr>
-                                        <?php
-                                        }
-                                        ?>
+										<tr>
+											<td align="center" colspan="4"> Data Not Found </td>
+										</tr>
+										<?php
+										}
+										?>
                                       
                                     </tbody>
                                 </table>

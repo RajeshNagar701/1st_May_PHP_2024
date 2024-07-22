@@ -33,21 +33,32 @@ include_once('header.php');
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach($download as $w)
-                                        {
+									if(!empty($download))
+										{
+											foreach($download as $w)
+											{
+											?>
+											<tr>
+												<td><?php echo $w->id;?></td>
+												<td><?php echo $w->user_id;?></td>
+												<td><?php echo $w->video_id;?></td>
+												<td>
+													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="delete?ddownload=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+												</td>
+											</tr>
+											<?php
+											}
+										}
+                                        else
+										{	
                                         ?>
-                                        <tr>
-                                            <td><?php echo $w->id;?></td>
-                                            <td><?php echo $w->user_id;?></td>
-                                            <td><?php echo $w->video_id;?></td>
-											<td>
-												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-											</td>
-                                        </tr>
-                                        <?php
-                                        }
-                                        ?>
+										<tr>
+											<td align="center" colspan="4"> Data Not Found </td>
+										</tr>
+										<?php
+										}
+										?>
                                       
                                     </tbody>
                                 </table>

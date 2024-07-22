@@ -37,26 +37,37 @@ include_once('header.php');
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach($users as $w)
-                                        {
+									if(!empty($users))
+										{
+											foreach($users as $w)
+											{
+											?>
+											<tr>
+												<td><?php echo $w->id;?></td>
+												<td><img src="upload/users/<?php echo $w->img;?>" width="50px" /></td>
+												<td><?php echo $w->name;?></td>
+												<td><?php echo $w->email;?></td>
+												<td><?php echo $w->gender;?></td>
+												<td><?php echo $w->lag;?></td>
+												<td><?php echo $w->cid;?></td>
+												<td>
+													<a href="#" class="btn btn-success"><?php echo $w->status;?></a>
+													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="delete?duser=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+												</td>
+											</tr>
+											<?php
+											}
+										}
+                                        else
+										{	
                                         ?>
-                                        <tr>
-                                            <td><?php echo $w->id;?></td>
-                                            <td><img src="upload/users/<?php echo $w->img;?>" width="50px" /></td>
-                                            <td><?php echo $w->name;?></td>
-                                            <td><?php echo $w->email;?></td>
-                                            <td><?php echo $w->gender;?></td>
-                                            <td><?php echo $w->lag;?></td>
-                                            <td><?php echo $w->cid;?></td>
-											<td>
-                                                <a href="#" class="btn btn-success"><?php echo $w->status;?></a>
-												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-											</td>
-                                        </tr>
-                                        <?php
-                                        }
-                                        ?>
+										<tr>
+											<td align="center" colspan="8"> Data Not Found </td>
+										</tr>
+										<?php
+										}
+										?>
                                       
                                     </tbody>
                                 </table>

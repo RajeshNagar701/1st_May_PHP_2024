@@ -34,22 +34,33 @@ include_once('header.php');
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach($comments as $w)
-                                        {
+									if(!empty($comments))
+										{
+											foreach($comments as $w)
+											{
+											?>
+											<tr>
+												<td><?php echo $w->id;?></td>
+												<td><?php echo $w->user_id;?></td>
+												<td><?php echo $w->video_id;?></td>
+												<td><?php echo $w->comment;?></td>
+												<td>
+													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="delete?dcomment=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+												</td>
+											</tr>
+											<?php
+											}
+										}
+                                        else
+										{	
                                         ?>
-                                        <tr>
-                                            <td><?php echo $w->id;?></td>
-                                            <td><?php echo $w->user_id;?></td>
-                                            <td><?php echo $w->video_id;?></td>
-                                            <td><?php echo $w->comment;?></td>
-											<td>
-												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-											</td>
-                                        </tr>
-                                        <?php
-                                        }
-                                        ?>
+										<tr>
+											<td align="center" colspan="5"> Data Not Found </td>
+										</tr>
+										<?php
+										}
+										?>
                                     </tbody>
                                 </table>
                             </div>

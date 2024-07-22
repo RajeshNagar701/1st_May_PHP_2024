@@ -39,27 +39,38 @@ include_once('header.php');
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach($vedios as $w)
-                                        {
+									if(!empty($vedios))
+										{
+											foreach($vedios as $w)
+											{
+											?>
+											<tr>
+												<td><?php echo $w->id;?></td>
+												<td><?php echo $w->img;?></td>
+												<td><?php echo $w->title;?></td>
+												<td><?php echo $w->lang;?></td>
+												<td><?php echo $w->duration;?></td>
+												<td><?php echo $w->Quality_format;?></td>
+												<td><?php echo $w->size;?></td>
+												<td><?php echo $w->main_cate_id;?></td>
+												<td><?php echo $w->sub_cate_id;?></td>
+												<td>
+													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="delete?dvideo=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+												</td>
+											</tr>
+											<?php
+											}
+										}
+                                        else
+										{	
                                         ?>
-                                        <tr>
-                                            <td><?php echo $w->id;?></td>
-                                            <td><?php echo $w->img;?></td>
-                                            <td><?php echo $w->title;?></td>
-                                            <td><?php echo $w->lang;?></td>
-                                            <td><?php echo $w->duration;?></td>
-                                            <td><?php echo $w->Quality_format;?></td>
-                                            <td><?php echo $w->size;?></td>
-                                            <td><?php echo $w->main_cate_id;?></td>
-                                            <td><?php echo $w->sub_cate_id;?></td>
-											<td>
-												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-											</td>
-                                        </tr>
-                                        <?php
-                                        }
-                                        ?>
+										<tr>
+											<td align="center" colspan="10"> Data Not Found </td>
+										</tr>
+										<?php
+										}
+										?>
                                     </tbody>
                                 </table>
                             </div>

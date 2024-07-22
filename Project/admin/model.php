@@ -29,7 +29,10 @@ class model
 		{
 			$arr[]=$data;
 		}
-		return $arr;
+		if(!empty($arr))
+		{
+			return $arr;
+		}
 	}
 
 	function insert($tbl,$arr)
@@ -59,6 +62,23 @@ class model
 			$i++;
 		}
 		$run=$this->conn->query($sel);
+		return $run;
+	}
+	
+	// delete where
+	function delete_where($tbl,$where)
+	{
+		$col_w=array_keys($where);
+		$value_w=array_values($where);
+		
+		$del="delete from $tbl where 1=1"; // 1=1 means query continue
+		$i=0;
+		foreach($where as $w)
+		{
+			$del.=" and $col_w[$i]='$value_w[$i]'";
+			$i++;
+		}
+		$run=$this->conn->query($del);
 		return $run;
 	}
 	
