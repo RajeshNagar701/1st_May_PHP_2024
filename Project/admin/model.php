@@ -82,6 +82,42 @@ class model
 		return $run;
 	}
 	
+	
+	function update_where($tbl,$data,$where)
+	{
+		$upd="update $tbl set"; // 1=1 means query continue
+		
+		$col_d=array_keys($data);
+		$value_d=array_values($data);
+		$j=0;
+		
+		$count=count($data);
+		foreach($data as $d)
+		{
+			if($count==$j+1)
+			{
+				$upd.=" $col_d[$j]='$value_d[$j]'";
+			}
+			else
+			{
+				$upd.=" $col_d[$j]='$value_d[$j]' , ";
+				$j++;
+			}
+		}
+	
+		$upd.=" where 1=1";
+		$col_w=array_keys($where);
+		$value_w=array_values($where);
+		$i=0;
+		foreach($where as $w)
+		{
+			echo $upd.=" and $col_w[$i]='$value_w[$i]'";
+			$i++;
+		}
+		$run=$this->conn->query($upd);
+		return $run;
+	}
+	
 }
 $obj=new model;
 

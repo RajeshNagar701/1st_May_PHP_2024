@@ -50,7 +50,7 @@ include_once('header.php');
 						<p>Email : <?php echo $fetch->email; ?></p>
 						<p>Gender : <?php echo $fetch->gender; ?></p>
 						<p>Launguges : <?php echo $fetch->lag; ?></p>
-						<a href="edit_user" class="btn btn-primary">Edit</a>
+						<a href="edit?editsignup=<?php echo $fetch->id; ?>" class="btn btn-primary">Edit</a>
 					</div>
               </div>
             </div>

@@ -134,7 +134,23 @@ class control extends model     // 2 step extends(inherit) model class
 							window.location='home'
 						</script>";
 				break;
-	
+				
+				
+				case '/edit':
+				
+				$countries = $this->select('countries');
+				if(isset($_REQUEST['editsignup'])) 
+				{
+					$id=$_REQUEST['editsignup'];
+					
+					$where=array("id"=>$id);
+					$res=$this->select_where('users',$where);
+					$fetch=$res->fetch_object();
+				}
+				include_once('edit_signup.php');
+				break;
+				
+				
 				default:
 				echo "<h1 style='color:red;text-align:center'> Page Not Found </h1>";
 				break;

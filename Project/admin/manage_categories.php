@@ -43,7 +43,7 @@ include_once('header.php');
 												<td><?php echo $w->name;?></td>
 												<td><?php echo $w->img;?></td>
 												<td>
-													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="edit?editcat=<?php echo $w->id;?>" class="btn btn-primary">Edit</a>
 													<a href="delete?dcat=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
 												</td>
 											</tr>
