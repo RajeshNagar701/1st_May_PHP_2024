@@ -329,6 +329,53 @@ class control extends model    // 2 step extends(inherit) model class
 			include_once('edit_categories.php');
 			break;
 			
+			
+			
+			case '/status':
+			if(isset($_REQUEST['status_user'])) 
+			{
+				$id=$_REQUEST['status_user'];
+				
+				$where=array("id"=>$id);
+				
+				// get data 
+				$resdata=$this->select_where('users',$where);
+				$fetch=$resdata->fetch_object();
+				$status=$fetch->status;
+				if($status=="Block")
+				{
+					$data = array("status" => "Unblock");
+
+					$res=$this->update_where('users',$data,$where);
+					if($res)
+					{
+						echo "<script>
+							alert('User Unblock Success!');
+							window.location='manage_user';
+						</script>";
+					}
+				}
+				else
+				{
+					$data = array("status" => "Block");
+
+					$res=$this->update_where('users',$data,$where);
+					if($res)
+					{
+						unset($_SESSION['uid']);
+						unset($_SESSION['uname']);
+						echo "<script>
+							alert('User Block Success!');
+							window.location='manage_user';
+						</script>";
+					}
+				}
+				
+				
+				
+			}
+			break;
+			
 			default:
 			echo "<h1 style='color:red;text-align:center'> Page Not Found </h1>";
 			break;

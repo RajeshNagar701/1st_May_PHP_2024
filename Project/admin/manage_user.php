@@ -18,7 +18,7 @@ include_once('header.php');
                   <!--   Kitchen Sink -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Categories
+                            User Data
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -51,7 +51,7 @@ include_once('header.php');
 												<td><?php echo $w->lag;?></td>
 												<td><?php echo $w->cid;?></td>
 												<td>
-													<a href="#" class="btn btn-success"><?php echo $w->status;?></a>
+													<a href="status?status_user=<?php echo $w->id;?>" class="btn btn-success"><?php echo $w->status;?></a>
 													<a href="#" class="btn btn-primary">Edit</a>
 													<a href="delete?duser=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
 												</td>

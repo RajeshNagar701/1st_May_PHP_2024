@@ -98,19 +98,30 @@ class control extends model     // 2 step extends(inherit) model class
 					
 					if($chk==1)
 					{
-						$data=$res->fetch_object(); // single data fetch 
-						$_SESSION['uname']=$data->name;
-						$_SESSION['uid']=$data->id;
 						
-						echo "<script>
-							alert('Login Success !');
-							window.location='home'
-						</script>";
+						$data=$res->fetch_object(); // single data fetch 
+						if($data->status=="Unblock")
+						{
+							$_SESSION['uname']=$data->name;
+							$_SESSION['uid']=$data->id;
+							
+							echo "<script>
+								alert('Login Success !');
+								window.location='home'
+							</script>";
+						}
+						else
+						{
+							echo "<script>
+								alert('Your Account Blocked so Contacts us !');
+								window.location='home'
+							</script>";
+						}
 					}
 					else
 					{
 						echo "<script>
-							alert('Login Failed !');
+							alert('Login Failed due to wrong credential!');
 						</script>";
 					}
 				}
@@ -146,6 +157,62 @@ class control extends model     // 2 step extends(inherit) model class
 					$where=array("id"=>$id);
 					$res=$this->select_where('users',$where);
 					$fetch=$res->fetch_object();
+					
+					
+					// old image
+					$old_img=$fetch->img;
+					
+					if(isset($_REQUEST['submit']))
+					{
+						$name = $_REQUEST['name'];
+						$email = $_REQUEST['email'];
+						$gender = $_REQUEST['gender'];
+						$lag_arr = $_REQUEST['lag']; // get data in arr form
+						$lag = implode(',', $lag_arr); // convert arr to string
+						$cid = $_REQUEST['cid'];
+						
+						$_SESSION['uname']=$name;
+						
+						if($_FILES['img']['size']>0)
+						{
+							$img = $_FILES['img']['name'];
+							// image upload in project folder
+							$path = '../admin/upload/users/' . $img;
+							$tmp_file = $_FILES['img']['tmp_name'];
+							move_uploaded_file($tmp_file, $path);
+
+							$data = array(
+								"name" => $name, "email" => $email,"gender" => $gender,
+								"lag" => $lag, "cid" => $cid, "img" => $img
+							);
+						
+							$res=$this->update_where('users',$data,$where);
+							if($res)
+							{
+								unlink('../admin/upload/users/' . $old_img);
+								echo "<script>
+									alert('User Data Update Success');
+									window.location='profile';
+								</script>";
+							}
+						}
+						else
+						{
+							$data = array(
+								"name" => $name, "email" => $email,"gender" => $gender,
+								"lag" => $lag, "cid" => $cid);
+						
+							$res=$this->update_where('users',$data,$where);
+							if($res)
+							{
+								echo "<script>
+									alert('User Data Update Success');
+									window.location='profile';
+								</script>";
+							}
+						}
+					}
+					
 				}
 				include_once('edit_signup.php');
 				break;

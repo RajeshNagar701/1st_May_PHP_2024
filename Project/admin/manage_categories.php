@@ -41,7 +41,7 @@ include_once('header.php');
 											<tr>
 												<td><?php echo $w->id;?></td>
 												<td><?php echo $w->name;?></td>
-												<td><?php echo $w->img;?></td>
+												<td><img src="upload/main_cate/<?php echo $w->img;?>" width="50px"></td>
 												<td>
 													<a href="edit?editcat=<?php echo $w->id;?>" class="btn btn-primary">Edit</a>
 													<a href="delete?dcat=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
