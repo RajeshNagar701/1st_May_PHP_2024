@@ -1,6 +1,6 @@
 <?php
 
-$json=file_get_contents('http://localhost/students/02Aug_PHP_Rajesh/Webservices/webservices_form.php');
+$json=file_get_contents('https://jsonplaceholder.typicode.com/photos');
 
 $arr=json_decode($json); // json econvert to arr
 ?>
@@ -8,8 +8,8 @@ $arr=json_decode($json); // json econvert to arr
 <table border="2" width="80%" align="center">
 	<tr>
 		<td>ID</td>
-		<td>Name</td>
-		<td>Description</td>
+		<td>Title</td>
+		<td>Image</td>
 		
 	</tr>
 	<?php
@@ -18,8 +18,8 @@ $arr=json_decode($json); // json econvert to arr
 		?>	
 	<tr>
 		<td><?php echo $d->id;?></td>
-		<td><?php echo $d->cnm;?></td>
-		<td><?php echo $d->desc;?></td>
+		<td><?php echo $d->title;?></td>
+		<td><img src="<?php echo $d->url;?>" width="50px" /></td>
 	</tr>
 		<?php
 		}
