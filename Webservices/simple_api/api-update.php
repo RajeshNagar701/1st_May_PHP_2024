@@ -7,9 +7,9 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$product_id = '3';//$data["product_id"];
-$product_name ='Audi Car';// $data["product_name"];
-$product_price ='300000';//$data["product_price"];
+$product_id = $data["product_id"];
+$product_name =$data["product_name"];
+$product_price =$data["product_price"];
 
 require_once "dbconfig.php";
 

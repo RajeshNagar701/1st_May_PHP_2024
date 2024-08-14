@@ -262,7 +262,7 @@
     $("#load-table").html("");
 
     $.ajax({ 
-      url : 'http://localhost/students/02Aug_PHP_Rajesh/Webservices/php-rest-api/api-search?search=' + search_term,
+      url : 'http://localhost/students/02Aug_PHP_Rajesh/Webservices/php-rest-api/api-search.php?search=' + search_term,
       type : "GET",
       success : function(data){
        if(data.status == false){

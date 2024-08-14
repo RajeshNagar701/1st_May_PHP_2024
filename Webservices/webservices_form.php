@@ -9,7 +9,9 @@ create APIs for web-based applications.
 
 Difine Json_encode & jason_decode func with example ?
 
-If you need to retrieve specific information from the server and make it appear on your website, you will probably be using JSON. The name of JSON stands for JavaScript Object Notation. It is based on JavaScript, so having some basic knowledge of it would be greatly welcome here. JSON also uses JavaScript syntax.
+If you need to retrieve specific information from the server and make it appear on your website,
+ you will probably be using JSON. The name of JSON stands for JavaScript Object Notation.
+ It is based on JavaScript, so having some basic knowledge of it would be greatly welcome here. JSON also uses JavaScript syntax.
 	
 	$data=array("name"=>"Rajesh","age"=>"31")
 	
