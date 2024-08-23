@@ -71,7 +71,10 @@ class control extends model   // step 2
 			break;
 			
 			case '/contact_delete':	
-			
+				
+				//$data = json_decode(file_get_contents("php://input"), true);
+				//$id = $data["id"];
+				
 				$id = $_GET['id'];
 				$where=array("id"=>$id);
 				$res=$this->delete('contacts',$where);
