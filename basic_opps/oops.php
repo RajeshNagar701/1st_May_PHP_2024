@@ -44,8 +44,9 @@ making group of data member(variable) and member function that called class
 A class is defined by using the class keyword, followed by the name of the class and a pair of curly braces ({}). All its properties and methods go inside the braces:
 Define Objects
 
-Classes are nothing without objects! We can create multiple objects from a class. E
-ach object has all the properties and methods defined in the class, but they will have different property values.
+Classes are nothing without objects! We can create multiple objects from a class. 
+Each object has all the properties and methods defined in the class, but they will 
+have different property values.
 Objects of a class are created using the new keyword.
 
 
@@ -84,8 +85,6 @@ class abc
 $obj=new abc;
 $obj->sum();
 $obj->multi();
-
-
 
 */
 class abc

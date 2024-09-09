@@ -38,11 +38,8 @@ class B implements A1,A2  // use extend impliments
 	  function bar() 
 	 {
 		 echo "This is A2 INTERFACE bar.<br>";
-	 }
-    
+	 } 
   }
-  
-
   $obj=new B;
   $obj->foo();
 
