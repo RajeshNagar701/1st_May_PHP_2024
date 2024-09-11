@@ -1,19 +1,14 @@
 
 <?php
 /*
-What is blade template
-
-The Blade is a powerful templating engine in a Laravel framework. 
-The blade allows to use the templating engine easily, and it makes the 
-syntax writing very simple. 
-The blade templating engine provides its own structure such as conditional 
-statements and loops. 
-
-To create a blade template, you just need to create a view file and 
-save it with a .blade.php extension instead of .php extension. 
+What is Blade Template?
+The Blade is a powerful templating engine in a Laravel framework. The blade allows to use the templating engine easily, and it makes the syntax writing very simple. 
+The blade templating engine provides its own structure such as conditional statements and loops. 
+To create a blade template, you just need to create a view file and save it with a .blade.php extension instead of .php extension. 
 
 
 */
+
 ?>
 
 
