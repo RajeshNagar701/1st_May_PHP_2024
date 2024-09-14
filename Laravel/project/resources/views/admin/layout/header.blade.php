@@ -1,17 +1,4 @@
 
-<?php
-/*
-if(isset($_SESSION['aid']))
-{
-}
-else
-{
-		echo "<script>
-		window.location='admin'
-		</script>";
-}	
-*/
-?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

@@ -1,12 +1,4 @@
-﻿<?php
-if(isset($_SESSION['aid']))
-{
-	echo "<script>
-		window.location='dashboard'
-		</script>";
-}
-?>
-
+﻿
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
