@@ -57,7 +57,7 @@
                         <a class="active-menu" href="dashboard"><i class="fa fa-dashboard "></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-desktop "></i>Main Categories <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-desktop "></i>Categories <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
                                 <a href="add_categories"><i class="fa fa-toggle-on"></i>Add</a>
@@ -68,10 +68,25 @@
                             
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop "></i>Service <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="add_service"><i class="fa fa-toggle-on"></i>Add</a>
+                            </li>
+                            <li>
+                                <a href="manage_service"><i class="fa fa-bell "></i>Manage</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
                    
 						 					
                     <li>
                         <a href="manage_user"><i class="fa fa-table "></i>User </a>
+                    </li>
+                    <li>
+                        <a href="manage_contact"><i class="fa fa-table "></i>Contact </a>
                     </li>
                     
                 </ul>

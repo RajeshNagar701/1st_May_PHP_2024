@@ -5,7 +5,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Manage Main Categories</h1>
+                        <h1 class="page-head-line">Manage Services</h1>
                         <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
 
                     </div>
@@ -17,7 +17,7 @@
                   <!--   Kitchen Sink -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Categories
+                           Manage Services
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -25,35 +25,44 @@
                                     <thead>
                                         <tr>
                                             <th>#ID</th>
-                                            <th>Name</th>
                                             <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Categories </th>
+                                            <th>Price</th>
+                                            <th>Desctiption</th>
+                                            <th>Status</th>
 											<th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-									if(!empty($category_arr))
+									if(!empty($service_arr))
 										{
-											foreach($category_arr as $w)
+											foreach($service_arr as $w)
 											{
 											?>
 											<tr>
 												<td><?php echo $w->id;?></td>
-												<td><?php echo $w->cate_name;?></td>
-												<td><img src="{{url('admin/img/categories/<?php echo $w->cate_img;?>')}}" width="50px"></td>
+												<td><img src="{{url(admin/img/service/<?php echo $w->img;?>" width="50px" /></td>
+												<td><?php echo $w->name;?></td>
+												<td><?php echo $w->cate_id;?></td>
+												<td><?php echo $w->price;?></td>
+												<td><?php echo $w->description;?></td>
+												<td><?php echo $w->status;?></td>
 												<td>
-													<a href="edit?editcat=<?php echo $w->id;?>" class="btn btn-primary">Edit</a>
-													<a href="delete?dcat=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+													<a href="status?status_user=<?php echo $w->id;?>" class="btn btn-success"><?php echo $w->status;?></a>
+													<a href="#" class="btn btn-primary">Edit</a>
+													<a href="delete?duser=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
 												</td>
 											</tr>
 											<?php
 											}
 										}
-										else
+                                        else
 										{	
                                         ?>
 										<tr>
-											<td align="center" colspan="4"> Data Not Found </td>
+											<td align="center" colspan="8"> Data Not Found </td>
 										</tr>
 										<?php
 										}
@@ -75,6 +84,5 @@
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
-    <!-- /. WRAPPER  -->
-   
-  @endsection
+
+    @endsection

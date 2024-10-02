@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\service;
 
 class serviceController extends Controller
 {
@@ -13,7 +14,8 @@ class serviceController extends Controller
      */
     public function index()
     {
-        //
+        $service_arr=service::all();
+        return view('admin.manage_service',['service_arr'=>$service_arr]); 
     }
 
     /**

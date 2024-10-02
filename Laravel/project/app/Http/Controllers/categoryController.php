@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\category;
 class categoryController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class categoryController extends Controller
      */
     public function index()
     {
-        return view('admin.manage_user');
+        $category_arr=category::all();
+        return view('admin.manage_categories',['category_arr'=>$category_arr]);
     }
 
     /**

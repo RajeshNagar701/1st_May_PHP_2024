@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\user;
 
 class userController extends Controller
 {
@@ -13,7 +14,9 @@ class userController extends Controller
      */
     public function index()
     {
-        return view('admin.manage_user');
+        $user_arr=user::all();
+        return view('admin.manage_user',["users"=>$user_arr]);
+
     }
 
     /**

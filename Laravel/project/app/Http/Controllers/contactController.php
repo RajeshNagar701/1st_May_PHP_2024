@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\contact;
 
 
 class contactController extends Controller
@@ -15,8 +15,17 @@ class contactController extends Controller
      */
     public function index()
     {
+        $contact_arr=contact::all();
+        return view('admin.manage_contact',["contact_arr"=>$contact_arr]);
+    }
+   
+     public function contact()
+    {
         return view('website.contact');
     }
+
+    
+
 
     /**
      * Show the form for creating a new resource.
