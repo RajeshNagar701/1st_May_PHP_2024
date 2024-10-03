@@ -14,21 +14,19 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <form action="">
+          <form action="{{url('/insert_contact')}}" method="post">
+          @csrf
             <div>
-              <input type="text" placeholder="Name" />
+              <input type="text" name="name" placeholder="Name" />
             </div>
             <div>
-              <input type="text" placeholder="Phone Number" />
+              <input type="email" name="email" placeholder="Email" />
             </div>
             <div>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div>
-              <input type="text" class="message-box" placeholder="Message" />
+              <input type="text" name="comment" class="message-box" placeholder="Message" />
             </div>
             <div class="d-flex ">
-              <button>
+              <button type="submit" name="submit">
                 SEND
               </button>
             </div>

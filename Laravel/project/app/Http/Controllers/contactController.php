@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\contact;
-
+use RealRashid\SweetAlert\Facades\Alert; // use Alert;
 
 class contactController extends Controller
 {
@@ -19,13 +19,6 @@ class contactController extends Controller
         return view('admin.manage_contact',["contact_arr"=>$contact_arr]);
     }
    
-     public function contact()
-    {
-        return view('website.contact');
-    }
-
-    
-
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +27,7 @@ class contactController extends Controller
      */
     public function create()
     {
-        //
+        return view('website.contact');
     }
 
     /**
@@ -45,7 +38,13 @@ class contactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=new contact;
+        $data->name=$request->name;  //$_REQUEST['name'];
+        $data->email=$request->email;
+        $data->comment=$request->comment;
+        $data->save();
+        Alert::success('Success Title', 'Success Message');
+        return redirect('/contact');
     }
 
     /**

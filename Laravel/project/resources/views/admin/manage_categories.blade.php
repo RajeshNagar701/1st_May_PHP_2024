@@ -40,7 +40,7 @@
 											<tr>
 												<td><?php echo $w->id;?></td>
 												<td><?php echo $w->cate_name;?></td>
-												<td><img src="{{url('admin/img/categories/<?php echo $w->cate_img;?>')}}" width="50px"></td>
+												<td><img src="{{url('admin/assets/img/categories/<?php echo $w->cate_img;?>')}}" width="50px"></td>
 												<td>
 													<a href="edit?editcat=<?php echo $w->id;?>" class="btn btn-primary">Edit</a>
 													<a href="delete?dcat=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>

@@ -55,7 +55,8 @@ Route::get('/service', function () {
     return view('website.service');
 });
 
-Route::get('/contact',[contactController::class,'contact']);
+Route::get('/contact',[contactController::class,'create']);
+Route::post('/insert_contact',[contactController::class,'store']);
 
 ///============================ Admin ==================================
 
@@ -68,6 +69,8 @@ Route::get('/dashboard', function () {
 Route::get('/manage_contact',[contactController::class,'index']);
 
 Route::get('/add_categories', [categoryController::class,'create']);
+Route::post('/insert_categories', [categoryController::class,'store']);
+
 Route::get('/manage_categories', [categoryController::class,'index']);
 
 

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\category;
+use App\Models\contact;
+use RealRashid\SweetAlert\Facades\Alert; // use Alert;
+
 class categoryController extends Controller
 {
     /**
@@ -35,7 +38,18 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $data=new category;
+       $data->cate_name=$request->cate_name;
+
+       // image upload
+       $file=$request->file('cate_img');		
+       $filename=time().'_img.'.$file->getClientOriginalExtension(); // 656676576_img.jpg
+       $file->move('admin/assests/img/categories/',$filename);  // use move for move image in public/images
+    
+       $data->cate_img=$filename; // name store in db
+       $data->save();
+       Alert::success('Success Title', 'Categories Add Success');
+       return redirect('/add_categories');
     }
 
     /**
