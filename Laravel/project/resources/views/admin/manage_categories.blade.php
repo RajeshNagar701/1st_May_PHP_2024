@@ -43,7 +43,7 @@
 												<td><img src="{{url('admin/assets/img/categories/<?php echo $w->cate_img;?>')}}" width="50px"></td>
 												<td>
 													<a href="edit?editcat=<?php echo $w->id;?>" class="btn btn-primary">Edit</a>
-													<a href="delete?dcat=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+													<a href="delete_categories/<?php echo $w->id;?>"  class="btn btn-danger">Delete</a>
 												</td>
 											</tr>
 											<?php

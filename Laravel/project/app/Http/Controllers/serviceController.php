@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\service;
+use RealRashid\SweetAlert\Facades\Alert; // use Alert;
 
 class serviceController extends Controller
 {
@@ -81,6 +82,9 @@ class serviceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=service::find($id);
+		$data->delete();
+        Alert::success('Success Delete', 'Service Deleted Success');
+		return redirect('/manage_service');
     }
 }

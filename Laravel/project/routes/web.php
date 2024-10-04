@@ -72,8 +72,15 @@ Route::get('/add_categories', [categoryController::class,'create']);
 Route::post('/insert_categories', [categoryController::class,'store']);
 
 Route::get('/manage_categories', [categoryController::class,'index']);
-
+Route::get('/delete_categories/{id}', [categoryController::class,'destroy']);
 
 Route::get('/manage_user', [userController::class,'index']);
+Route::get('/delete_user/{id}', [userController::class,'destroy']);
+
+
 Route::get('/manage_service', [serviceController::class,'index']);
+Route::get('/delete_service/{id}', [serviceController::class,'destroy']);
+
+
 Route::get('/manage_contact', [contactController::class,'index']);
+Route::get('/delete_contact/{id}', [contactController::class,'destroy']);

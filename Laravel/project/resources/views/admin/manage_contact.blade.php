@@ -45,7 +45,7 @@
 												<td><?php echo $w->comment;?></td>
 												<td>
 													<a href="#" class="btn btn-primary">Edit</a>
-													<a href="delete?duser=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+													<a href="delete_contact/<?php echo $w->id;?>"  class="btn btn-danger">Delete</a>
 												</td>
 											</tr>
 											<?php

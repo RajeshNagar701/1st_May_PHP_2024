@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\user;
+use RealRashid\SweetAlert\Facades\Alert; // use Alert;
 
 class userController extends Controller
 {
@@ -82,6 +83,9 @@ class userController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=user::find($id);
+		$data->delete();
+        Alert::success('Success Delete', 'User Deleted Success');
+		return redirect('/manage_user');
     }
 }

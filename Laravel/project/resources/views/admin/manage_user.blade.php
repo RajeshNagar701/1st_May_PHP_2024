@@ -52,7 +52,7 @@
 												<td>
 													<a href="status?status_user=<?php echo $w->id;?>" class="btn btn-success"><?php echo $w->status;?></a>
 													<a href="#" class="btn btn-primary">Edit</a>
-													<a href="delete?duser=<?php echo $w->id;?>" class="btn btn-danger">Delete</a>
+													<a href="delete_user/<?php echo $w->id;?>"  class="btn btn-danger">Delete</a>
 												</td>
 											</tr>
 											<?php

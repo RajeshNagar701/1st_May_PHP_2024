@@ -94,6 +94,11 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=category::find($id);
+        $cate_img=$data->cate_img;
+        unlink('admin/assets/img/categories/'.$cate_img);
+		$data->delete();
+        Alert::success('Success Delete', 'Categories Deleted Success');
+		return redirect('/manage_categories');
     }
 }
