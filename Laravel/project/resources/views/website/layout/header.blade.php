@@ -88,6 +88,9 @@ function active($currect_page){
                 <li class="nav-item <?php active('contact')?>">
                   <a class="nav-link" href="contact">Contact Us</a>
                 </li>
+                <li class="nav-item <?php active('signup')?>">
+                  <a class="nav-link" href="signup">Signup</a>
+                </li>
               </ul>
             </div>
           </nav>

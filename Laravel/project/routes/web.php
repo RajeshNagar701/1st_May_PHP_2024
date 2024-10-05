@@ -58,6 +58,11 @@ Route::get('/service', function () {
 Route::get('/contact',[contactController::class,'create']);
 Route::post('/insert_contact',[contactController::class,'store']);
 
+
+Route::get('/signup',[userController::class,'create']);
+Route::post('/insert_signup',[userController::class,'store']);
+
+Route::get('/login',[userController::class,'login']);
 ///============================ Admin ==================================
 
 Route::get('/admin_login',[adminController::class,'index'] );

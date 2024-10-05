@@ -8,7 +8,7 @@
   <div class="container">
     <div class="heading_container">
       <h2>
-        Contact Us
+        Login Hare
       </h2>
     </div>
     <div class="row">
@@ -24,22 +24,20 @@
         </div>
         @endif
 
-        <form action="{{url('/insert_contact')}}" method="post">
+        <form action="{{url('/login_auth')}}" method="post">
           @csrf
-          <div>
-            <input class="form-control mb-3" type="text" name="name" value="{{old('name')}}" placeholder="Name" />
-          </div>
           <div>
             <input class="form-control mb-3" type="email" name="email" value="{{old('email')}}" placeholder="Email" />
           </div>
           <div>
-            <input class="form-control mb-3" type="text" name="comment" value="{{old('comment')}}" class="message-box" placeholder="Message" />
+            <input class="form-control mb-3" type="text" name="password" value="{{old('password')}}" placeholder="Password" />
           </div>
-          <div class="d-flex">
+          <div class="d-flex mb-3">
             <button type="submit" name="submit">
-              SEND
+              Login
             </button>
           </div>
+          <a href="signup">If you not regisrted then signup Here</a>
         </form>
       </div>
       <div class="col-md-6">

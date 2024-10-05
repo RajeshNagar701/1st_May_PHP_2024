@@ -38,6 +38,13 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $validated = $request->validate([
+            'cate_name' => 'required|alpha:ascii',
+            'cate_img' => 'required|mimes:jpg,jpeg,png,gif',
+        ]); 
+
        $data=new category;
        $data->cate_name=$request->cate_name;
 

@@ -22,11 +22,18 @@
                             @csrf
                             <div class="form-group">
                                 <label>Enter Categories Name</label>
-                                <input class="form-control" name="cate_name" type="text">
+                                <input class="form-control" value="{{old('cate_name')}}" name="cate_name" type="text">
+                                @error('cate_name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+
                             </div>
                             <div class="form-group">
                                 <label>Upload Categories Image</label>
                                 <input class="form-control" name="cate_img" type="file">
+                                @error('cate_img')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <button type="submit" name="submit" class="btn btn-info">Submit </button>
