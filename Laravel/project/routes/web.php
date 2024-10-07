@@ -63,6 +63,7 @@ Route::get('/signup',[userController::class,'create']);
 Route::post('/insert_signup',[userController::class,'store']);
 
 Route::get('/login',[userController::class,'login']);
+Route::post('/login_auth',[userController::class,'login_auth']);
 ///============================ Admin ==================================
 
 Route::get('/admin_login',[adminController::class,'index'] );

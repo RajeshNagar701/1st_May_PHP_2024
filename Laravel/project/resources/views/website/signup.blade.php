@@ -24,7 +24,7 @@
         </div>
         @endif
 
-        <form action="{{url('/insert_signup')}}" method="post">
+        <form action="{{url('/insert_signup')}}" enctype="multipart/form-data" method="post">
           @csrf
           <div>
             <input class="form-control mb-3" type="text" name="name" value="{{old('name')}}" placeholder="Name" />

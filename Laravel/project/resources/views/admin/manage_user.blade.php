@@ -43,7 +43,7 @@
 											?>
 											<tr>
 												<td><?php echo $w->id;?></td>
-												<td><img src="{{url(website/images/users/<?php echo $w->img;?>" width="50px" /></td>
+												<td><img src="website/images/users/<?php echo $w->img;?>" width="50px" /></td>
 												<td><?php echo $w->name;?></td>
 												<td><?php echo $w->email;?></td>
 												<td><?php echo $w->gender;?></td>
