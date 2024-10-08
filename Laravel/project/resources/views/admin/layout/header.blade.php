@@ -1,5 +1,13 @@
 
-
+<?php
+if (session()->has('ses_adminid')) {
+ 
+}
+else
+{
+    echo "<script>window.location='/admin_login';</script>";
+}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,7 +55,7 @@
                             <div class="inner-text">
                                 <?php //echo $_SESSION['aname']?>
                             <br />
-                                <small>Last Login : 2 Weeks Ago </small>
+                                <small>Hi .. {{session()->get('ses_adminname')}} </small>
                             </div>
                         </div>
 

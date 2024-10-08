@@ -44,7 +44,11 @@ Route::get('/', function () {
 
 
 Route::get('/', function () {
-    return view('website.about');
+    return view('website.index');
+});
+
+Route::get('/index', function () {
+    return view('website.index');
 });
 
 Route::get('/about', function () {
@@ -64,9 +68,15 @@ Route::post('/insert_signup',[userController::class,'store']);
 
 Route::get('/login',[userController::class,'login']);
 Route::post('/login_auth',[userController::class,'login_auth']);
+
+Route::get('/user_logout',[userController::class,'user_logout']);
 ///============================ Admin ==================================
 
 Route::get('/admin_login',[adminController::class,'index'] );
+Route::post('/adminlogin_auth',[adminController::class,'adminlogin_auth']);
+
+Route::get('/admin_logout',[adminController::class,'admin_logout']);
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');

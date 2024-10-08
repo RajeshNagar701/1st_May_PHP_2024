@@ -1,5 +1,10 @@
-@extends('website.layout.main_structure')
+<?php
+if (session()->has('ses_userid')) {
+  echo "<script>window.location='/';</script>";
+}
+?>
 
+@extends('website.layout.main_structure')
 @section('main_code')
 
 <!-- contact section -->

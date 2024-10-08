@@ -52,6 +52,14 @@ function active($currect_page){
                 Call : +01 123455678990
               </span>
             </a>
+            @if(session()->has('ses_userid'))
+            <a href="">
+              <i class="fa fa-USER" aria-hidden="true"></i>
+              <span>
+               Hi .. {{session()->get('ses_username')}}
+              </span>
+            </a>
+            @endif
             <a href="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
@@ -88,9 +96,15 @@ function active($currect_page){
                 <li class="nav-item <?php active('contact')?>">
                   <a class="nav-link" href="contact">Contact Us</a>
                 </li>
+                @if(session()->has('ses_userid'))
+                <li class="nav-item">
+                  <a class="nav-link" href="user_logout">Logout</a>
+                </li>
+                @else
                 <li class="nav-item <?php active('signup')?>">
                   <a class="nav-link" href="signup">Signup</a>
                 </li>
+                @endif
               </ul>
             </div>
           </nav>

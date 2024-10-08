@@ -1,7 +1,11 @@
+<?php
+if (session()->has('ses_userid')) {
+  echo "<script>window.location='/';</script>";
+}
+?>
 @extends('website.layout.main_structure')
 
 @section('main_code')
-
 <!-- contact section -->
 
 <section class="contact_section layout_padding">

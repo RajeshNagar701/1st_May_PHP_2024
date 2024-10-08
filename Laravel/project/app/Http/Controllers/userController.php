@@ -7,6 +7,7 @@ use App\Models\user;
 use App\Models\country;
 use RealRashid\SweetAlert\Facades\Alert; // use Alert;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class userController extends Controller
 {
@@ -83,6 +84,12 @@ class userController extends Controller
         if ($data) {
             if (Hash::check($request->password, $data->password)) {
                 if ($data->status == "Unblock") {
+                    
+                    // create session
+                    session()->put('ses_username',$data->name); 
+                    session()->put('ses_userid',$data->id); 
+
+
                     Alert::success('Success', 'Login Success');
                     return redirect('/');
                 }else {
@@ -99,6 +106,13 @@ class userController extends Controller
         }
     }
 
+    function user_logout(){
+
+        session()->pull('ses_userid');
+		session()->pull('ses_username');
+		Alert::success('Congrats', 'You\'ve Successfully Logout');
+		return redirect('/index');
+    }
 
 
     /**
