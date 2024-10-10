@@ -121,9 +121,20 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     // user profile
+
+    public function userprofile()
+    {
+        //$data=user::all(); // all data in array
+        $data=user::where("id",session()->get('ses_userid'))->first(); // single data 
+        //$data=user::where("id",session()->get('ses_userid'))->get(); // get by con data arr 
+        return view('website.userprofile',['data'=>$data]);
+    }
+
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -134,7 +145,9 @@ class userController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=user::find($id); // all data in array
+        $country_arr = country::all();
+        return view('website.editprofile', ["country_arr" => $country_arr,"data"=>$data]);
     }
 
     /**
@@ -146,7 +159,35 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|alpha:ascii',
+            'cid' => 'required',
+        ]);
+
+        $data = user::find($id); // single data
+        $data->name = $request->name;
+        $data->gender = $request->gender;
+        $data->lag = implode(",", $request->lag);
+        $data->cid = $request->cid;
+
+        // image upload
+        if($request->hasfile('img'))
+        {
+            $old_img=$data->img;
+            unlink('website/images/users/'.$old_img);
+
+            $file = $request->file('img');
+            $filename = time() . '_img.' . $file->getClientOriginalExtension(); // 656676576_img.jpg
+            $file->move('website/images/users/', $filename);  // use move for move image in public/images
+            $data->img = $filename; // name store in db
+        }  
+
+        $data->update();
+
+        session()->put('ses_username',$request->name); 
+        
+        Alert::success('Success', 'Update Success');
+        return redirect('/userprofile');
     }
 
     /**
@@ -158,6 +199,8 @@ class userController extends Controller
     public function destroy($id)
     {
         $data = user::find($id);
+        $old_img=$data->img;
+        unlink('website/images/users/'.$old_img);
         $data->delete();
         Alert::success('Success Delete', 'User Deleted Success');
         return redirect('/manage_user');

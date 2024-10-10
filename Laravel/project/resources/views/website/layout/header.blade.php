@@ -53,10 +53,10 @@ function active($currect_page){
               </span>
             </a>
             @if(session()->has('ses_userid'))
-            <a href="">
+            <a href="userprofile">
               <i class="fa fa-USER" aria-hidden="true"></i>
               <span>
-               Hi .. {{session()->get('ses_username')}}
+               Hi .. {{session()->get('ses_username')}}  / My Account
               </span>
             </a>
             @endif

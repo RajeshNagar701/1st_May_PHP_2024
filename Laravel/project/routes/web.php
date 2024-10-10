@@ -69,6 +69,10 @@ Route::post('/insert_signup',[userController::class,'store']);
 Route::get('/login',[userController::class,'login']);
 Route::post('/login_auth',[userController::class,'login_auth']);
 
+Route::get('/userprofile',[userController::class,'userprofile']);
+Route::get('/editprofile/{id}',[userController::class,'edit']);
+Route::post('/updateprofile/{id}',[userController::class,'update']);
+
 Route::get('/user_logout',[userController::class,'user_logout']);
 ///============================ Admin ==================================
 
