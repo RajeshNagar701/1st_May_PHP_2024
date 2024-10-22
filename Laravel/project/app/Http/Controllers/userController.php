@@ -9,6 +9,9 @@ use RealRashid\SweetAlert\Facades\Alert; // use Alert;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+use App\Mail\welcomemail;
+use Illuminate\Support\Facades\Mail;
+
 class userController extends Controller
 {
     /**
@@ -51,7 +54,7 @@ class userController extends Controller
 
         $data = new user;
         $data->name = $request->name;
-        $data->email = $request->email;
+ $email=$data->email = $request->email;
         $data->password = Hash::make($request->password);
         $data->gender = $request->gender;
         $data->lag = implode(",", $request->lag);
@@ -63,6 +66,7 @@ class userController extends Controller
         $file->move('website/images/users/', $filename);  // use move for move image in public/images
 
         $data->img = $filename; // name store in db
+        Mail::to($email)->send(new welcomemail());
         $data->save();
         Alert::success('Success Title', 'Signup Success');
         return redirect('/signup');
@@ -183,9 +187,7 @@ class userController extends Controller
         }  
 
         $data->update();
-
         session()->put('ses_username',$request->name); 
-        
         Alert::success('Success', 'Update Success');
         return redirect('/userprofile');
     }
