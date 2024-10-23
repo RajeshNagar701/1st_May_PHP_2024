@@ -74,6 +74,17 @@ Route::get('/editprofile/{id}',[userController::class,'edit']);
 Route::post('/updateprofile/{id}',[userController::class,'update']);
 
 Route::get('/user_logout',[userController::class,'user_logout']);
+
+Route::get('/forgotpass',[userController::class,'forgotpass']);
+Route::post('/insert_forgotpass',[userController::class,'insert_forgotpass']);
+
+Route::get('/enterotp',[userController::class,'enterotp']);
+Route::post('/insert_enterotp',[userController::class,'insert_enterotp']);
+
+Route::get('/reset_pass',[userController::class,'reset_pass']);
+Route::post('/updatereset_pass/{id}',[userController::class,'updatereset_pass']);
+
+
 ///============================ Admin ==================================
 
 Route::get('/admin_login',[adminController::class,'index'] );

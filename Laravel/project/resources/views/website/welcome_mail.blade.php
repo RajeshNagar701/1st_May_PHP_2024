@@ -1,3 +1,10 @@
 <h1>
-    Hi Welcome to our Mehboob company .... 
+    Hi {{$name}}.... Welcome to our Mehboob company 
+</h1>
+
+<h1>
+    Your Email : {{$email}}
+</h1>
+<h1>
+    Your Password : {{$pass}}
 </h1>

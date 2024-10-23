@@ -13,7 +13,7 @@ if (session()->has('ses_userid')) {
   <div class="container">
     <div class="heading_container">
       <h2>
-        Login Hare
+        Forgot Password Hare
       </h2>
     </div>
     <div class="row">
@@ -29,22 +29,16 @@ if (session()->has('ses_userid')) {
         </div>
         @endif
 
-        <form action="{{url('/login_auth')}}" method="post">
+        <form action="{{url('/insert_forgotpass')}}" method="post">
           @csrf
           <div>
             <input class="form-control mb-3" type="email" name="email" value="{{old('email')}}" placeholder="Email" />
           </div>
-          <div>
-            <input class="form-control mb-3" type="text" name="password" value="{{old('password')}}" placeholder="Password" />
-          </div>
           <div class="d-flex mb-3">
             <button type="submit" name="submit">
-              Login
+              Submit
             </button>
           </div>
-          <a href="signup">If you not regisrted then signup Here</a>
-          <br>
-          <a href="forgotpass">Forgot Password</a>
         </form>
       </div>
       <div class="col-md-6">

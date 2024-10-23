@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 use App\Mail\welcomemail;
+use App\Mail\forgotemail;
 use Illuminate\Support\Facades\Mail;
 
 class userController extends Controller
@@ -53,8 +54,9 @@ class userController extends Controller
         ]);
 
         $data = new user;
-        $data->name = $request->name;
+ $name=$data->name = $request->name;
  $email=$data->email = $request->email;
+  $pass=$request->password;
         $data->password = Hash::make($request->password);
         $data->gender = $request->gender;
         $data->lag = implode(",", $request->lag);
@@ -66,7 +68,11 @@ class userController extends Controller
         $file->move('website/images/users/', $filename);  // use move for move image in public/images
 
         $data->img = $filename; // name store in db
-        Mail::to($email)->send(new welcomemail());
+        
+        // mail code
+        $mail_data=array("name"=>$name,"email"=>$email,"pass"=>$pass);
+        Mail::to($email)->send(new welcomemail($mail_data));
+
         $data->save();
         Alert::success('Success Title', 'Signup Success');
         return redirect('/signup');
@@ -117,6 +123,74 @@ class userController extends Controller
 		Alert::success('Congrats', 'You\'ve Successfully Logout');
 		return redirect('/index');
     }
+
+
+    public function forgotpass(Request $request)
+    {
+        return view('website.forgotpass');
+    }
+
+    public function insert_forgotpass(Request $request)
+    {
+        $data=user::where("email",$request->email)->first();
+        if($data)
+        {
+            $email=$data->email;
+            $id=$data->id;
+
+            $otp=rand(100000,999999);
+            
+            session()->put('ses_forgotid',$id); 
+            session()->put('ses_otp',$otp); 
+
+            $forgot_data=array("otp"=>session()->get('ses_otp'));
+            Mail::to($email)->send(new forgotemail($forgot_data));
+            return redirect('/enterotp');
+        }
+        else
+        {
+            Alert::error('error', 'Username Not valid');
+            return redirect('/forgotpass');
+        }
+    }
+
+    public function enterotp(Request $request)
+    {
+        return view('website.enterotp');
+    }
+    public function insert_enterotp(Request $request)
+    {
+        if(session()->get('ses_otp')==$request->otp)
+        {
+            session()->put('ses_reset',"reset");
+            session()->pull('ses_otp');
+            return redirect('/reset_pass');
+        }
+        else
+        {
+            Alert::error('error', 'OTP Not valid or Match');
+            return redirect('/enterotp');
+        }
+    }
+
+    public function reset_pass(Request $request)
+    {
+        return view('website.reset_pass');
+    }
+
+    public function updatereset_pass($id,Request $request)
+    {
+        $data=user::find($id);
+        $data->password=Hash::make($request->new_pass);
+        $data->update();
+        
+        session()->pull('ses_reset');
+        session()->pull('ses_forgotid');
+
+        Alert::success('Success', 'Reset Password Success');
+        return redirect('/login');
+    }
+    
 
 
     /**

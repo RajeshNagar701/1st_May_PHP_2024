@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class welcomemail extends Mailable
+class forgotemail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,9 +18,9 @@ class welcomemail extends Mailable
      *
      * @return void
      */
-    public function __construct($mail_data)
+    public function __construct($forgot_data)
     {
-        $this->mail_data=$mail_data;
+        $this->forgot_data=$forgot_data;
     }
 
     /**
@@ -31,7 +31,7 @@ class welcomemail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Welcome To Mehboob Company',
+            subject: 'Forgotemail',
         );
     }
 
@@ -43,12 +43,9 @@ class welcomemail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'website.welcome_mail',with: [
-                'name' => $this->mail_data['name'],
-                'email' => $this->mail_data['email'],
-                'pass' => $this->mail_data['pass']
+            view: 'website.forgot_mail',with: [
+                'otp' => $this->forgot_data['otp']
             ]
-
         );
     }
 

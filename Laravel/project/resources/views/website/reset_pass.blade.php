@@ -1,5 +1,8 @@
 <?php
-if (session()->has('ses_userid')) {
+if (session()->has('ses_reset')) {
+  
+}
+else{
   echo "<script>window.location='/';</script>";
 }
 ?>
@@ -13,7 +16,7 @@ if (session()->has('ses_userid')) {
   <div class="container">
     <div class="heading_container">
       <h2>
-        Login Hare
+        Reset Password
       </h2>
     </div>
     <div class="row">
@@ -29,22 +32,16 @@ if (session()->has('ses_userid')) {
         </div>
         @endif
 
-        <form action="{{url('/login_auth')}}" method="post">
+        <form action="{{url('/updatereset_pass/'.session()->get('ses_forgotid'))}}" method="post">
           @csrf
           <div>
-            <input class="form-control mb-3" type="email" name="email" value="{{old('email')}}" placeholder="Email" />
-          </div>
-          <div>
-            <input class="form-control mb-3" type="text" name="password" value="{{old('password')}}" placeholder="Password" />
+            <input class="form-control mb-3" type="password" name="new_pass" value="{{old('new_pass')}}" placeholder="Enter New Reset Password" />
           </div>
           <div class="d-flex mb-3">
             <button type="submit" name="submit">
-              Login
+              Submit
             </button>
           </div>
-          <a href="signup">If you not regisrted then signup Here</a>
-          <br>
-          <a href="forgotpass">Forgot Password</a>
         </form>
       </div>
       <div class="col-md-6">
