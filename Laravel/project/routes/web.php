@@ -63,55 +63,55 @@ Route::get('/contact',[contactController::class,'create']);
 Route::post('/insert_contact',[contactController::class,'store']);
 
 
-Route::get('/signup',[userController::class,'create']);
-Route::post('/insert_signup',[userController::class,'store']);
+Route::get('/signup',[userController::class,'create'])->middleware('before');
+Route::post('/insert_signup',[userController::class,'store'])->middleware('before');
 
-Route::get('/login',[userController::class,'login']);
-Route::post('/login_auth',[userController::class,'login_auth']);
+Route::get('/login',[userController::class,'login'])->middleware('before');
+Route::post('/login_auth',[userController::class,'login_auth'])->middleware('before');
 
-Route::get('/userprofile',[userController::class,'userprofile']);
-Route::get('/editprofile/{id}',[userController::class,'edit']);
-Route::post('/updateprofile/{id}',[userController::class,'update']);
+Route::get('/userprofile',[userController::class,'userprofile'])->middleware('after');
+Route::get('/editprofile/{id}',[userController::class,'edit'])->middleware('after');
+Route::post('/updateprofile/{id}',[userController::class,'update'])->middleware('after');
+Route::get('/user_logout',[userController::class,'user_logout'])->middleware('after');
 
-Route::get('/user_logout',[userController::class,'user_logout']);
+Route::get('/forgotpass',[userController::class,'forgotpass'])->middleware('before');
+Route::post('/insert_forgotpass',[userController::class,'insert_forgotpass'])->middleware('before');
 
-Route::get('/forgotpass',[userController::class,'forgotpass']);
-Route::post('/insert_forgotpass',[userController::class,'insert_forgotpass']);
+Route::get('/enterotp',[userController::class,'enterotp'])->middleware('before');
+Route::post('/insert_enterotp',[userController::class,'insert_enterotp'])->middleware('before');
 
-Route::get('/enterotp',[userController::class,'enterotp']);
-Route::post('/insert_enterotp',[userController::class,'insert_enterotp']);
-
-Route::get('/reset_pass',[userController::class,'reset_pass']);
-Route::post('/updatereset_pass/{id}',[userController::class,'updatereset_pass']);
+Route::get('/reset_pass',[userController::class,'reset_pass'])->middleware('before');
+Route::post('/updatereset_pass/{id}',[userController::class,'updatereset_pass'])->middleware('before');
 
 
 ///============================ Admin ==================================
 
-Route::get('/admin_login',[adminController::class,'index'] );
-Route::post('/adminlogin_auth',[adminController::class,'adminlogin_auth']);
 
-Route::get('/admin_logout',[adminController::class,'admin_logout']);
+Route::group(['middleware'=>['beforead']],function(){
 
+    Route::get('/admin_login',[adminController::class,'index'] );
+    Route::post('/adminlogin_auth',[adminController::class,'adminlogin_auth']);
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
 });
 
-Route::get('/manage_contact',[contactController::class,'index']);
-
-Route::get('/add_categories', [categoryController::class,'create']);
-Route::post('/insert_categories', [categoryController::class,'store']);
-
-Route::get('/manage_categories', [categoryController::class,'index']);
-Route::get('/delete_categories/{id}', [categoryController::class,'destroy']);
-
-Route::get('/manage_user', [userController::class,'index']);
-Route::get('/delete_user/{id}', [userController::class,'destroy']);
 
 
-Route::get('/manage_service', [serviceController::class,'index']);
-Route::get('/delete_service/{id}', [serviceController::class,'destroy']);
+Route::group(['middleware'=>['afterad']],function(){
 
+    Route::get('/admin_logout',[adminController::class,'admin_logout']);
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('/manage_contact',[contactController::class,'index']);
+    Route::get('/add_categories', [categoryController::class,'create']);
+    Route::post('/insert_categories', [categoryController::class,'store']);
+    Route::get('/manage_categories', [categoryController::class,'index']);
+    Route::get('/delete_categories/{id}', [categoryController::class,'destroy']);
+    Route::get('/manage_user', [userController::class,'index']);
+    Route::get('/delete_user/{id}', [userController::class,'destroy']);
+    Route::get('/manage_service', [serviceController::class,'index']);
+    Route::get('/delete_service/{id}', [serviceController::class,'destroy']);
+    Route::get('/manage_contact', [contactController::class,'index']);
+    Route::get('/delete_contact/{id}', [contactController::class,'destroy']);
 
-Route::get('/manage_contact', [contactController::class,'index']);
-Route::get('/delete_contact/{id}', [contactController::class,'destroy']);
+});

@@ -13,6 +13,8 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
+
+    // global middleware regisrted  
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -28,6 +30,8 @@ class Kernel extends HttpKernel
      *
      * @var array<string, array<int, class-string|string>>
      */
+
+     // // group middleware regisrted 
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -37,6 +41,13 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'afterad'=>[
+			 \App\Http\Middleware\adminafterlogin::class
+		],
+        'beforead'=>[
+			 \App\Http\Middleware\adminbeforelogin::class
+		],
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
@@ -52,7 +63,11 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
+
+    // route middleware regisrted 
     protected $routeMiddleware = [
+        'after' => \App\Http\Middleware\userafterlogin::class,
+        'before' => \App\Http\Middleware\userbeforelogin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
