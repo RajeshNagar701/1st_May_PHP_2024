@@ -29,17 +29,58 @@
 </head>
 
 <body>
+<script>
+    var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?17879';
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = url;
+    var options = {
+  "enabled":true,
+  "chatButtonSetting":{
+      "backgroundColor":"#4dc247",
+      "ctaText":"",
+      "borderRadius":"25",
+      "marginLeft":"0",
+      "marginBottom":"50",
+      "marginRight":"50",
+      "position":"right"
+  },
+  "brandSetting":{
+      "brandName":"Raj",
+      "brandSubTitle":"Hi welcome to Tops Technolgies",
+      "brandImg":"https://cdn.clare.ai/wati/images/WATI_logo_square_2.png",
+      "welcomeText":"Hi, there!\nHow can I help you?",
+      "messageText":"Hello, I have a question about ",
+      "backgroundColor":"#0a5f54",
+      "ctaText":"Start Chat",
+      "borderRadius":"25",
+      "autoShow":false,
+      "phoneNumber":"9722041181"
+  }
+};
+    s.onload = function() {
+        CreateWhatsappChatWidget(options);
+    };
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+</script>
 
-<?php
-function active($currect_page){
-  $url_array =  explode('/', $_SERVER['REQUEST_URI']) ; // current page url
-  $url = end($url_array);  
-  if($currect_page == $url){
-	  echo 'active'; //class name in css 
-  } 
-}
-?>
+  <?php
+  function active($currect_page)
+  {
+    $url_array =  explode('/', $_SERVER['REQUEST_URI']); // current page url
+    $url = end($url_array);
+    if ($currect_page == $url) {
+      echo 'active'; //class name in css 
+    }
+  }
+  ?>
   @include('sweetalert::alert');
+
+
+
+
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -56,7 +97,7 @@ function active($currect_page){
             <a href="userprofile">
               <i class="fa fa-USER" aria-hidden="true"></i>
               <span>
-               Hi .. {{session()->get('ses_username')}}  / My Account
+                Hi .. {{session()->get('ses_username')}} / My Account
               </span>
             </a>
             @endif
@@ -84,16 +125,16 @@ function active($currect_page){
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
-                <li class="nav-item <?php active('')?>">
+                <li class="nav-item <?php active('') ?>">
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item <?php active('about')?>">
+                <li class="nav-item <?php active('about') ?>">
                   <a class="nav-link" href="{{url('/about')}}"> About</a>
                 </li>
-                <li class="nav-item <?php active('service')?>">
+                <li class="nav-item <?php active('service') ?>">
                   <a class="nav-link" href="{{url('/service')}}">Services</a>
                 </li>
-                <li class="nav-item <?php active('contact')?>">
+                <li class="nav-item <?php active('contact') ?>">
                   <a class="nav-link" href="contact">Contact Us</a>
                 </li>
                 @if(session()->has('ses_userid'))
@@ -101,7 +142,7 @@ function active($currect_page){
                   <a class="nav-link" href="user_logout">Logout</a>
                 </li>
                 @else
-                <li class="nav-item <?php active('signup')?>">
+                <li class="nav-item <?php active('signup') ?>">
                   <a class="nav-link" href="signup">Signup</a>
                 </li>
                 @endif

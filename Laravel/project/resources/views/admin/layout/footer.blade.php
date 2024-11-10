@@ -4,7 +4,7 @@
     <!-- /. FOOTER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="{{url('admin/assets/js/jquery-1.10.2.js')}}"></script>
+    
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="{{url('admin/assets/js/bootstrap.js')}}"></script>
     <!-- METISMENU SCRIPTS -->

@@ -1,6 +1,14 @@
 ﻿@extends('admin.layout.main_structure') 
 
 @section('main_code')
+
+
+    
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -21,7 +29,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
+                                <table id="mytable" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>#ID</th>
@@ -86,3 +94,8 @@
     </div>
 
     @endsection
+    <script>
+        $(document).ready(function() {
+            $('#mytable').DataTable();
+        });
+    </script>
